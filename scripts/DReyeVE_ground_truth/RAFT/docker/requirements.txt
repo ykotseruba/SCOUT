@@ -1,0 +1,7 @@
+opencv-python==4.1.0.25
+scipy
+numpy
+pillow
+torchvision
+#tensorboardX==1.6
+tqdm

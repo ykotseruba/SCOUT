@@ -1,0 +1,11 @@
+numpy==1.17.4
+opencv_python==4.8.1.78
+geopandas==0.13.2
+pandas==0.25.3
+pyvalhalla==3.2.0
+geopy==2.1.0
+matplotlib==3.1.2
+folium==0.12.1
+selenium==3.141.0
+osmnx==1.9.1
+valhalla==0.1.4

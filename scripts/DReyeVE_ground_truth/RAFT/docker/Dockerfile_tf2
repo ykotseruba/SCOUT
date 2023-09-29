@@ -1,0 +1,27 @@
+FROM pytorch/pytorch:1.6.0-cuda10.1-cudnn7-devel
+
+SHELL ["/bin/bash", "-c"]
+
+ARG USER_ID
+ARG GROUP_ID
+
+RUN addgroup --gid $GROUP_ID user
+RUN adduser --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID yulia
+
+RUN apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/3bf863cc.pub
+
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y -q \
+	vim \
+	libglib2.0-0 \
+	libsm6 \
+	libxext6 \
+	libxrender-dev \
+	python3-pip \
+	python3-scipy 
+
+
+COPY requirements.txt .
+RUN pip install -r ./requirements.txt
+
+USER yulia

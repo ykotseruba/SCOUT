@@ -1,0 +1,59 @@
+model_class: SCOUT_map_v1 # To run SCOUT+ with map input only, change the model_class to SCOUT_map_v2
+
+dataset: BDD-A # Options: DReyeVE, BDD-A
+
+last_weights: None
+
+best_weights: None
+
+model_params:
+  img_size: [224,224]
+  use_map: True
+    
+  map_params:
+    img_size: [128, 128] # size of the map image
+    radius: 100 # radius (m) of the map around the ego-vehicle
+    full_traj: False # plot past and future trajectory on the map
+    obs_traj: False # plot past vehicle trajectory on the map
+    coords: False # add a channel with x, y coordinates
+    dist: False # add a channel with distance from the center of the map
+
+  transformer_params:
+    add_and_norm: True
+    fuse_idx: [1, 2] # index of [0, 1, 2, 3] 
+    num_att_heads: [2, 2, 2]
+
+  pretrained_backbone: True
+  train_backbone: True
+  num_encoder_layers: 4 # 1-4 
+  clip_size: 16
+
+train_params:
+  no_epochs: 10
+  lr: 0.0001
+  loss:
+    kldiv: True
+    kldiv_coeff: 1.0
+    cc: False
+    cc_coeff: -1.0
+    nss: False
+    nss_coeff: 1.0
+    sim: False
+    sim_coeff: -1.0
+    l1: False
+    l1_coeff: 1.0
+  lr_sched: True
+  early_stop: True
+  optimizer: Adam
+  batch_size: 4
+  log_interval: 10
+  no_workers: 4 # number of workers for dataloader
+  weighted_sampler: False # select "hard" samples more frequently during training, may not use all samples
+  weighted_loss: False # assigns higher weights to "hard" samples in loss calculation
+  weight_type: KLdiv
+
+test_params:
+  batch_size: 4
+  eval: full # Options: full, quick (10% of the data), null (do not evaluate)
+  metrics: [KLdiv, NSS, SIM, CC] 
+  save_images: False # save saliency maps

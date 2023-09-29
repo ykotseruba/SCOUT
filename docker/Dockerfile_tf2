@@ -1,0 +1,27 @@
+FROM pytorch/pytorch:1.7.0-cuda11.0-cudnn8-devel
+SHELL ["/bin/bash", "-c"]
+
+ARG USER_ID
+ARG GROUP_ID
+ARG USER_NAME
+
+RUN addgroup --gid $GROUP_ID user
+RUN adduser --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID $USER_NAME
+
+RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
+
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install --no-install-recommends -y -q \
+	vim \
+	libglib2.0-0 \
+	libsm6 \
+	libxext6 \
+	libxrender-dev \
+	python3-pip \
+	python3-scipy 
+
+
+COPY requirements.txt .
+RUN pip install -r ./requirements.txt
+
+USER $USER_NAME
