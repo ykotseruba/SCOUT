@@ -1,8 +1,14 @@
 # SCOUT: Ta**s**k- and **C**ontext-M**o**d**u**lated A**t**tention
 
-This is a repository for the SCOUT and SCOUT+ models for task- and context-aware driver gaze prediction. Here you can also find the corrected and annotated ground truth for DR(eye)VE dataset and extra annotations for drivers' actions and context for DR(eye)VE, BDD-A, and LBW datasets.
+This is a repository for the following models and data:
+- SCOUT and SCOUT+ models for task- and context-aware driver gaze prediction; 
+- corrected and annotated ground truth for DR(eye)VE dataset; 
+- extra annotations for drivers' actions and context for DR(eye)VE, BDD-A, and LBW datasets.
 
-More information can be found in the paper [I. Kotseruba, J.K. Tsotsos, "Understanding and Modeling the Effects of Task and Context on Drivers' Gaze Allocation", 2023.](INSERT_URL_LINK). See [supplementary materials](supplementary.pdf) for additional results and details. 
+More information can be found in these papers:
+- [I. Kotseruba, J.K. Tsotsos, "Understanding and Modeling the Effects of Task and Context on Drivers' Gaze Allocation", IV, 2024.](https://arxiv.org/abs/2310.09275). 
+- [I. Kotseruba, J.K. Tsotsos, "SCOUT+: Towards practical task-driven drivers’ gaze prediction", IV, 2024.](INSERT_URL_LINK)
+- [I. Kotseruba, J.K. Tsotsos, "Data limitations for modeling top-down effects on drivers’ attention", IV, 2024.](INSERT_URL_LINK)
 
 #### Table of contents
 * [SCOUT model description](#scout)
@@ -87,7 +93,7 @@ Note that in these files, ETG and GAR videos are temporally realigned. As a resu
 
 To generate new saliency maps for DR(eye)VE we did the following:
 
-- filtered out all saccades, blinks and fixations to the car-interior;
+- filtered out saccades, blinks and fixations to the car-interior;
 - pushed fixations outside of the scene frame bounds to the image boundary to preserve the direction and elevation of the drivers' gaze;
 - re-aggregated fixations over 1s interval (+-12 frames) around each frame using motion-compensated saliency method based on the optical flow.
 
@@ -219,63 +225,70 @@ The following pretrained weights are available [here](https://drive.google.com/d
 
 - SCOUT+ (with map) trained on DR(eye)VE or BDD-A
 
-Download the model weights and place them in `train_runs/best_model/`.
+To use pretrained weights, download them and place them in `train_runs/best_model/`.
 
 
 <a name="kld"></a>
 ### Note on the KLD metric
 
-The implementation of KL divergence in the [DR(eye)VE metrics code](https://github.com/ndrplz/dreyeve/blob/master/experiments/metrics/metrics.py) sometimes produces incorrect results. Script `test_saliency_metrics.py` demonstrates discrepancies between DR(eye)VE and two other KLdiv implementations. For evaluationg SCOUT and other models, we follow [Fahimi & Bruce implementation](https://github.com/rAm1n/saliency). See also [supplementary materials](supplementary.pdf) for more details.
+The implementation of KL divergence in the [DR(eye)VE metrics code](https://github.com/ndrplz/dreyeve/blob/master/experiments/metrics/metrics.py) produces incorrect results. Script `test_saliency_metrics.py` demonstrates discrepancies between DR(eye)VE and two other KLdiv implementations. For evaluationg SCOUT and other models, we follow [Fahimi & Bruce implementation](https://github.com/rAm1n/saliency). See also [supplementary materials](supplementary.pdf) for more details.
 
 <a name="cite"></a>
 ## Citation
 
-If you used models or data available in this repository, please consider citing these papers:
-
-Task and context annotations for DR(eye)VE, BDD-A, and LBW
-```
-```
-
-
-SCOUT model or new DR(eye)VE ground truth:
+If you used models or data from this repository, please consider citing these papers:
 
 ```
+@inproceedings{2024_IV_SCOUT,
+    author = {Kotseruba, Iuliia and Tsotsos, John K.},
+    title = {Understanding and modeling the effects of task and context on drivers' gaze allocation},
+    booktitle = {IV},
+    year = {2024}
+}
+
+@inproceedings{2024_IV_SCOUT+,
+    author = {Kotseruba, Iuliia and Tsotsos, John K.},
+    title = {{SCOUT+: Towards practical task-driven drivers’ gaze prediction}},
+    booktitle = {IV},
+    year = {2024}
+}
+
+@inproceedings{2024_IV_data,
+    author = {Kotseruba, Iuliia and Tsotsos, John K.},
+    title = {Data limitations for modeling top-down effects on drivers’ attention},
+    booktitle = {IV},
+    year = {2024}
+}
 
 ```
 
-SCOUT+ model or maps for DR(eye)VE/BDD-A:
-
-```
-
-```
-
-Citations for the dataset papers:
+References for the DR(eye)VE, BDD-A, and LBW datasets:
 
 ```
 @article{2018_PAMI_Palazzi,
-    author = "Palazzi, Andrea and Abati, Davide and Solera, Francesco and Cucchiara, Rita and others",
-    journal = "IEEE TPAMI",
-    number = "7",
-    pages = "1720--1733",
-    title = "{Predicting the Driver's Focus of Attention: the DR (eye) VE Project}",
-    volume = "41",
-    year = "2018"
+    author = {Palazzi, Andrea and Abati, Davide and Calderara, Simone and Solera, Francesco and Cucchiara, Rita},
+    title = {{Predicting the driver's focus of attention: The DR (eye) VE Project}},
+    journal = {IEEE TPAMI},
+    volume = {41},
+    number = {7},
+    pages = {1720--1733},
+    year = {2018}
 }
 
 @inproceedings{2018_ACCV_Xia,
-    author = "Xia, Ye and Zhang, Danqing and Kim, Jinkyu and Nakayama, Ken and Zipser, Karl and Whitney, David",
-    booktitle = "ACCV",
-    title = "Predicting driver attention in critical situations",
-    year = "2018"
+    author = {Xia, Ye and Zhang, Danqing and Kim, Jinkyu and Nakayama, Ken and Zipser, Karl and Whitney, David},
+    title = {Predicting driver attention in critical situations},
+    booktitle = {ACCV},
+    pages = {658--674},
+    year = {2018}
 }
 
 @inproceedings{2022_ECCV_Kasahara,
-    author = "Kasahara, Isaac and Stent, Simon and Park, Hyun Soo",
-    booktitle = "Computer Vision--ECCV 2022: 17th European Conference, Tel Aviv, Israel, October 23--27, 2022, Proceedings, Part XIII",
-    organization = "Springer",
-    pages = "126--142",
-    title = "Look Both Ways: Self-supervising Driver Gaze Estimation and Road Scene Saliency",
-    year = "2022"
+    author = {Kasahara, Isaac and Stent, Simon and Park, Hyun Soo},
+    title = {{Look Both Ways: Self-supervising driver gaze estimation and road scene saliency}},
+    booktitle = {ECCV},
+    pages = {126--142},
+    year = {2022}
 }
 
 ```
