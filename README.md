@@ -7,8 +7,8 @@ This is a repository for the following models and data:
 
 More information can be found in these papers:
 - [I. Kotseruba, J.K. Tsotsos, "Understanding and Modeling the Effects of Task and Context on Drivers' Gaze Allocation", IV, 2024.](https://arxiv.org/abs/2310.09275). 
-- [I. Kotseruba, J.K. Tsotsos, "SCOUT+: Towards practical task-driven drivers’ gaze prediction", IV, 2024.](INSERT_URL_LINK)
-- [I. Kotseruba, J.K. Tsotsos, "Data limitations for modeling top-down effects on drivers’ attention", IV, 2024.](INSERT_URL_LINK)
+- [I. Kotseruba, J.K. Tsotsos, "SCOUT+: Towards practical task-driven drivers’ gaze prediction", IV, 2024.](https://arxiv.org/abs/2404.08756)
+- [I. Kotseruba, J.K. Tsotsos, "Data limitations for modeling top-down effects on drivers’ attention", IV, 2024.](https://arxiv.org/abs/2404.08749v1)
 
 #### Table of contents
 * [SCOUT model description](#scout)
