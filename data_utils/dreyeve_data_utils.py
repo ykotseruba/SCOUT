@@ -487,7 +487,7 @@ class DReyeVEUtils():
 			action_counts.append(record)
 			
 			action_counts_df = pd.DataFrame.from_dict(action_counts)
-			action_counts_df.to_excel(f'dreyeve_{action_type}_counts.xlsx')
+			#action_counts_df.to_excel(f'dreyeve_{action_type}_counts.xlsx')
 			temp = action_counts_df[[action_type, 'num_frames']].groupby(action_type)
 			action_stats_df = pd.concat([temp.count(), temp.sum(), temp.sum()/len(veh_df)*100, temp.mean(), temp.std()], axis=1)
 			action_stats_df.columns = ['count', 'sum', 'perc', 'mean', 'std']
@@ -504,7 +504,7 @@ class DReyeVEUtils():
 		print(lon_action_stats_df[['count', 'mean', 'std', 'perc']].round(2).sort_values(by=['perc'], ascending=False).to_latex())
 		print(lat_action_stats_df[['count', 'mean', 'std', 'perc']].round(2).sort_values(by=['perc'], ascending=False).to_latex())
 		
-		excel_filename = 'cache/dreyeve_task_action.xlsx'
+		excel_filename = 'dreyeve_task_action.xlsx'
 		
 		if os.path.exists(excel_filename):
 			writer = pd.ExcelWriter(excel_filename, engine='openpyxl', mode='a', if_sheet_exists='replace')
@@ -541,7 +541,7 @@ class DReyeVEUtils():
 
 		inters_stats_df = inters_df.groupby(['inters_type', 'priority']).count()
 		
-		excel_filename = 'cache/dreyeve_task_action.xlsx'
+		excel_filename = 'dreyeve_task_action.xlsx'
 
 		if os.path.exists(excel_filename):
 			writer = pd.ExcelWriter(excel_filename, engine='openpyxl', mode='a', if_sheet_exists='replace')

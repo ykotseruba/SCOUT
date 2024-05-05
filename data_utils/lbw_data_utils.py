@@ -34,7 +34,7 @@ class LBWUtils():
 		self._test_subj_id = [22, 25, 19, 20, 15] # subject ids used for testing
 		self._val_subj_id = [16, 17] # subj ids used for validation
 		self._gaze_df = self.load_gaze_data(cached=cached)
-		self._head_pose_df = self.load_head_pose(cached=cached)
+		#self._head_pose_df = self.load_head_pose(cached=cached)
 		self.load_vehicle_data(cached=cached)
 		self._camera_calib = self.load_camera_calibration()
 		#self.load_vehicle_data(cached=cached)
@@ -585,7 +585,7 @@ class LBWUtils():
 		print(lon_action_stats_df[['count', 'mean', 'std', 'perc']].round(2).sort_values(by=['perc'], ascending=False).to_latex())
 		print(lat_action_stats_df[['count', 'mean', 'std', 'perc']].round(2).sort_values(by=['perc'], ascending=False).to_latex())
 		
-		excel_filename = 'spreadsheets/lbw_task_action.xlsx'
+		excel_filename = 'lbw_task_action.xlsx'
 		
 
 		if os.path.exists(excel_filename):
@@ -614,7 +614,7 @@ class LBWUtils():
 
 		inters_stats_df = inters_df.groupby(['inters_type', 'priority']).count()
 
-		excel_filename = 'spreadsheets/lbw_task_action.xlsx'
+		excel_filename = 'lbw_task_action.xlsx'
 		
 		if os.path.exists(excel_filename):
 			writer = pd.ExcelWriter(excel_filename, engine='openpyxl', mode='a', if_sheet_exists='replace')

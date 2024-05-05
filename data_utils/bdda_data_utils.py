@@ -403,13 +403,16 @@ class BDDAUtils():
 		# print(lon_action_stats_df[['count', 'mean', 'std', 'perc']].round(2).sort_values(by=['perc'], ascending=False).to_latex())
 		# print(lat_action_stats_df[['count', 'mean', 'std', 'perc']].round(2).sort_values(by=['perc'], ascending=False).to_latex())
 		
-		excel_filename = 'spreadsheets/bdd-a_task_action.xlsx'
-		writer = pd.ExcelWriter(excel_filename, engine='openpyxl', mode='a', if_sheet_exists='replace')
+		excel_filename = 'bdd-a_task_action.xlsx'
+		
 
 		if os.path.exists(excel_filename):
+			writer = pd.ExcelWriter(excel_filename, engine='openpyxl', mode='a', if_sheet_exists='replace')
 			book = writer.book			
 			book.create_sheet('lon_action')
 			book.create_sheet('lat_action')
+		else:
+			writer = pd.ExcelWriter(excel_filename, engine='openpyxl', mode='w')
 
 		lon_action_stats_df.round(2).sort_values(by=['perc'], ascending=False).to_excel(writer, sheet_name='lon_action')
 		lat_action_stats_df.round(2).sort_values(by=['perc'], ascending=False).to_excel(writer, sheet_name='lat_action')
@@ -427,12 +430,14 @@ class BDDAUtils():
 
 		inters_stats_df = inters_df.groupby(['inters_type', 'priority']).count()
 
-		excel_filename = 'spreadsheets/bdd-a_task_action.xlsx'
-		writer = pd.ExcelWriter(excel_filename, engine='openpyxl', mode='a', if_sheet_exists='replace')
-
+		excel_filename = 'bdd-a_task_action.xlsx'
+		
 		if os.path.exists(excel_filename):
+			writer = pd.ExcelWriter(excel_filename, engine='openpyxl', mode='a', if_sheet_exists='replace')
 			book = writer.book
 			book.create_sheet('context')
+		else:
+			writer = pd.ExcelWriter(excel_filename, engine='openpyxl', mode='w')
 		
 		inters_stats_df.to_excel(writer, sheet_name='context')
 		writer.close()
