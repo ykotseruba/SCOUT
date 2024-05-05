@@ -262,7 +262,7 @@ If you used models or data from this repository, please consider citing these pa
 
 ```
 
-References for the DR(eye)VE, BDD-A, and LBW datasets:
+References for the DR(eye)VE, BDD-A, MAAD, and LBW datasets:
 
 ```
 @article{2018_PAMI_Palazzi,
@@ -282,6 +282,15 @@ References for the DR(eye)VE, BDD-A, and LBW datasets:
     pages = {658--674},
     year = {2018}
 }
+
+@inproceedings{2021_ICCVW_Gopinath,
+  title={MAAD: A Model and Dataset for" Attended Awareness" in Driving},
+  author={Gopinath, Deepak and Rosman, Guy and Stent, Simon and Terahata, Katsuya and Fletcher, Luke and Argall, Brenna and Leonard, John},
+  booktitle={ICCVW},
+  pages={3426--3436},
+  year={2021}
+}
+
 
 @inproceedings{2022_ECCV_Kasahara,
     author = {Kasahara, Isaac and Stent, Simon and Park, Hyun Soo},
