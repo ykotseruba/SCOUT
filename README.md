@@ -6,9 +6,9 @@ This is a repository for the following models and data:
 - extra annotations for drivers' actions and context for DR(eye)VE, BDD-A, and LBW datasets.
 
 More information can be found in these papers:
-- I. Kotseruba, J.K. Tsotsos, "Understanding and Modeling the Effects of Task and Context on Drivers' Gaze Allocation", IV, 2024.[paper](https://ieeexplore.ieee.org/document/10588589) [arXiv](https://arxiv.org/abs/2310.09275). 
-- I. Kotseruba, J.K. Tsotsos, "SCOUT+: Towards practical task-driven drivers’ gaze prediction", IV, 2024.[paper](https://ieeexplore.ieee.org/document/10588743) [arXiv](https://arxiv.org/abs/2404.08756)
-- I. Kotseruba, J.K. Tsotsos, "Data limitations for modeling top-down effects on drivers’ attention", IV, 2024.[paper](https://ieeexplore.ieee.org/document/10588528) [arXiv](https://arxiv.org/abs/2404.08749v1)
+- I. Kotseruba, J.K. Tsotsos, "Understanding and Modeling the Effects of Task and Context on Drivers' Gaze Allocation", IV, 2024. [paper](https://ieeexplore.ieee.org/document/10588589) | [arXiv](https://arxiv.org/abs/2310.09275). 
+- I. Kotseruba, J.K. Tsotsos, "SCOUT+: Towards practical task-driven drivers’ gaze prediction", IV, 2024. [paper](https://ieeexplore.ieee.org/document/10588743) | [arXiv](https://arxiv.org/abs/2404.08756)
+- I. Kotseruba, J.K. Tsotsos, "Data limitations for modeling top-down effects on drivers’ attention", IV, 2024. [paper](https://ieeexplore.ieee.org/document/10588528) | [arXiv](https://arxiv.org/abs/2404.08749v1)
 
 #### Table of contents
 * [SCOUT model description](#scout)
