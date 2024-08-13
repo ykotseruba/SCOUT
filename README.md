@@ -158,7 +158,7 @@ See `data_utils/README.md` for more information.
 
 - Download DR(eye)VE dataset following the instructions on the [official webpage](https://aimagelab.ing.unimore.it/imagelab/page.asp?IdPage=8)
 
-- Download BDD-A dataset following the instructions on the [official webpage](https://deepdrive.berkeley.edu/)
+- Download BDD-A dataset following the instructions on the [official webpage](bdd-data.berkeley.edu/download.html)
 
 - Create environment variables DREYEVE_PATH for DR(eye)VE and BDDA_PATH for BDD-A (e.g. add a line `export DREYEVE_PATH=/path/to/dreyeve/` to `~/.bashrc` file)
 
